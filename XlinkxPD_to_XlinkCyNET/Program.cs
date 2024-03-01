@@ -278,16 +278,17 @@ namespace XlinkxPD_to_XlinkCyNET
             {
                 if (line.Length > 0)
                 {
-                    if (line.StartsWith("\"Checked,") || line.StartsWith("Checked,"))
+                    line = Regex.Replace(line, "\"", "").Replace('\t', ',');
+                    if (line.ToLower().StartsWith("\"checked,") || line.ToLower().StartsWith("checked,"))
                     {
                         ProcessHeaderProteins(line);
                         isProteinFile = true;
                     }
-                    else if (line.StartsWith("\"Id,") || line.StartsWith("Id,"))
+                    else if (line.ToLower().StartsWith("\"id,") || line.ToLower().StartsWith("id,"))
                     {
                         return;
                     }
-                    else if (line.StartsWith("\"FALSE,") || line.StartsWith("FALSE,"))
+                    else if (line.ToLower().StartsWith("\"false,") || line.ToLower().StartsWith("false,"))
                     {
                         if (!isProteinFile) break;
                         ProcessLineProteins(line);
@@ -362,8 +363,23 @@ namespace XlinkxPD_to_XlinkCyNET
 
             ppis = new();
 
+            int group_processed = 0;
+            int old_progress = 0;
+            double lengthFile = groupedByXL.Count;
+            Console.WriteLine();
             foreach (var item in groupedByXL)
             {
+                group_processed++;
+                int new_progress = (int)((double)group_processed / (lengthFile) * 100);
+                if (new_progress > old_progress)
+                {
+                    old_progress = new_progress;
+                    int currentLineCursor = Console.CursorTop;
+                    Console.SetCursorPosition(0, Console.CursorTop);
+                    Console.Write("Grouping data: " + old_progress + "%");
+                    Console.SetCursorPosition(0, currentLineCursor);
+                }
+
                 string accessionNumberPtn1 = item.PPInt.Protein1;
                 string accessionNumberPtn2 = item.PPInt.Protein2;
                 Protein ptn1 = proteinList.Where(a => a.accessionNumber.Equals(accessionNumberPtn1)).FirstOrDefault();
