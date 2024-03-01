@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XlinkxPD_to_XlinkCyNET", "XlinkxPD_to_XlinkCyNET\XlinkxPD_to_XlinkCyNET.csproj", "{83F20EF5-F01B-4AC1-AC58-12D90D860A0C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{83F20EF5-F01B-4AC1-AC58-12D90D860A0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83F20EF5-F01B-4AC1-AC58-12D90D860A0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83F20EF5-F01B-4AC1-AC58-12D90D860A0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83F20EF5-F01B-4AC1-AC58-12D90D860A0C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {76DD937F-4173-49AA-B8C6-F947C190FB45}
+	EndGlobalSection
+EndGlobal
